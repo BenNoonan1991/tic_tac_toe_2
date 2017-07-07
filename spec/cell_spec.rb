@@ -8,4 +8,5 @@ describe Cell do
       expect(cell.value).to eq ''
     end
   end
+
 end
