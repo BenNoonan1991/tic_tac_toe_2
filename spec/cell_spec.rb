@@ -1,11 +1,11 @@
-require 'grid'
+require 'cell'
 
-describe Grid do
+describe Cell do
 
   context "initialize" do
     it "is initialized with a value of '' " do
-      grid = Grid.new
-      expect(grid.value).to eq ''
+      cell = Cell.new
+      expect(cell.value).to eq ''
     end
   end
 end
