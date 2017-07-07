@@ -13,4 +13,13 @@ describe Player do
     end
 
   end
+
+  context "#name" do
+    it "returns name of current player" do
+      input = { name: "Player 1" }
+      player = Player.new(input)
+      expect(player.name).to eq "Player 1"
+    end
+  end
+
 end
