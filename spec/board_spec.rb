@@ -27,4 +27,12 @@ describe Board do
     end
   end
 
+  describe "#get_cell" do
+    it "returns cell based on coordinates" do
+      grid = [["", "", ""], ["", "", "Test"], ["", "", ""]]
+      board = Board.new(grid: grid)
+      expect(board.get_cell(2, 1)).to eq "Test"
+    end
+  end
+
 end
