@@ -2,7 +2,7 @@ require 'board'
 
 describe Board do
 
-  context "#initialize" do
+  describe "#initialize" do
     it "initializes the board with a grid" do
       expect { Board.new(grid: "grid") }.to_not raise_error
     end
@@ -20,7 +20,7 @@ describe Board do
     end
   end
 
-  context "#grid" do
+  describe "#grid" do
     it "returns the grid" do
       board = Board.new(grid: "Test")
       expect(board.grid).to eq "Test"
@@ -32,6 +32,16 @@ describe Board do
       grid = [["", "", ""], ["", "", "Test"], ["", "", ""]]
       board = Board.new(grid: grid)
       expect(board.get_cell(2, 1)).to eq "Test"
+    end
+  end
+
+  describe "#set_cell" do
+    it "updates the value of the cell object at a (x, y) coordinate" do
+      First = Struct.new(:value)
+      grid = [[First.new("nought"), "", ""], ["", "", ""], ["", "", ""]]
+      board = Board.new(grid: grid)
+      board.set_cell(0, 0, "nought")
+      expect(board.get_cell(0, 0).value).to eq "nought"
     end
   end
 

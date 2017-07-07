@@ -1,7 +1,7 @@
 require 'player'
 
 describe Player do
-  context "#initialize" do
+  describe "#initialize" do
 
     it "raises an exception when initialized with {}" do
       expect { Player.new({}) }.to raise_error(KeyError)
@@ -14,7 +14,7 @@ describe Player do
 
   end
 
-  context "#name" do
+  describe "#name" do
     it "returns name of current player" do
       input = { name: "Player 1" }
       player = Player.new(input)
