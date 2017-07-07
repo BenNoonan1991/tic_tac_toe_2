@@ -18,7 +18,13 @@ describe Board do
         expect(row.size).to eq (3)
       end
     end
+  end
 
+  context "#grid" do
+    it "returns the grid" do
+      board = Board.new(grid: "Test")
+      expect(board.grid).to eq "Test"
+    end
   end
 
 end
