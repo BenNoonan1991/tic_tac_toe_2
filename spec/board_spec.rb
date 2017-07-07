@@ -11,5 +11,14 @@ describe Board do
       board = Board.new
       expect(board.grid.size).to eq(3)
     end
+
+    it "creates 3 cells for each row of the grid" do
+      board = Board.new
+      board.grid.each do |row|
+        expect(row.size).to eq (3)
+      end
+    end
+
   end
+
 end
