@@ -11,4 +11,10 @@ describe Array do
       expect(["", 1, "", Object.new, :a].all_empty?).to be_falsey
     end
   end
+
+  describe "#all_same" do
+    it "returns true if all array elements are the same" do
+      expect(["A", "A", "A"].all_same?).to be_truthy
+    end
+  end
 end
