@@ -2,7 +2,7 @@ require 'extensions'
 
 describe Array do
 
-  describe "#all_empty" do
+  describe "#all_empty?" do
     it "returns true if the array is completely empty" do
       expect(["", "", ""].all_empty?).to be_truthy
     end
@@ -12,7 +12,7 @@ describe Array do
     end
   end
 
-  describe "#all_same" do
+  describe "#all_same?" do
     it "returns true if all array elements are the same" do
       expect(["A", "A", "A"].all_same?).to be_truthy
     end
@@ -21,6 +21,12 @@ describe Array do
   describe "#any_empty?" do
     it "returns true if any array elements are empty" do
       expect(["", "A", "A"].any_empty?).to be_truthy
+    end
+  end
+
+  describe "#none_empty?" do
+    it "returns true if no array elements are empty" do
+      expect(["A", "A", "A"].none_empty?).to be_truthy
     end
   end
 

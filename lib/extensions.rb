@@ -12,4 +12,8 @@ class Array
     self.any? { |element| element.to_s.empty?}
   end
 
+  def none_empty?
+    !any_empty?
+  end 
+
 end
