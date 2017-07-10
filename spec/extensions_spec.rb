@@ -17,4 +17,11 @@ describe Array do
       expect(["A", "A", "A"].all_same?).to be_truthy
     end
   end
+
+  describe "#any_empty?" do
+    it "returns true if any array elements are empty" do
+      expect(["", "A", "A"].any_empty?).to be_truthy
+    end
+  end
+
 end

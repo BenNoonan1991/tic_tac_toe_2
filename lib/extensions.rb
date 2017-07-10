@@ -8,4 +8,8 @@ class Array
     self.all? { |element| element == self[0] }
   end
 
-end 
+  def any_empty?
+    self.any? { |element| element.to_s.empty?}
+  end
+
+end
