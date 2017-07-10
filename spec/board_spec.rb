@@ -1,6 +1,10 @@
 require 'board'
 
 describe Board do
+  TestCell = Struct.new(:value)
+  let(:x_cell) { TestCell.new("X") }
+  let(:y_cell) { TestCell.new("Y") }
+  let(:empty) { TestCell.new }
 
   describe "#initialize" do
     it "initializes the board with a grid" do
@@ -45,4 +49,25 @@ describe Board do
     end
   end
 
+  describe "#game_over" do
+    it "returns :draw if all spaces on board are taken" do
+      grid = [
+        [x_cell, y_cell, x_cell],
+        [y_cell, x_cell, y_cell],
+        [y_cell, x_cell, y_cell]
+      ]
+      board = Board.new(grid: grid)
+      expect(board.game_over).to eq :draw
+    end
+
+    it "returns winner if  player gets 3 in a row" do
+      grid = [
+        [x_cell, x_cell, x_cell],
+        [y_cell, x_cell, y_cell],
+        [y_cell, y_cell, empty]
+      ]
+      board = Board.new(grid: grid)
+      expect(board.game_over).to eq :winner
+    end
+  end
 end
