@@ -13,12 +13,19 @@ describe Game do
     end
   end
 
-  describe "#move" do
+  describe "#select_position" do
     it "allows the player to make a move" do
       game = Game.new([a, b])
       allow(game).to receive(:current_player) { a }
       expected = "a: Enter a number between 1 and 9 to select position"
       expect(game.select_position).to eq expected
+    end
+  end
+
+  describe "#get_move" do
+    it "converts player input into an x, y coordinate" do
+      game = Game.new([a, b])
+      expect(game.get_move("1")).to eq [0, 0]
     end
   end
 

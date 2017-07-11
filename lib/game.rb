@@ -15,4 +15,26 @@ class Game
       "#{current_player.name}: Enter a number between 1 and 9 to select position"
     end
 
+    def get_move(player_input = gets.chomp)
+      coordinate(player_input)
+    end
+
+    private
+
+    def coordinate(player_input)
+      mapping = {
+        "1" => [0, 0],
+        "2" => [1, 0],
+        "3" => [2, 0],
+        "4" => [0, 1],
+        "5" => [1, 1],
+        "6" => [2, 1],
+        "7" => [0, 2],
+        "8" => [1, 2],
+        "9" => [2, 2]
+      }
+      mapping[player_input]
+    end 
+
+
 end
