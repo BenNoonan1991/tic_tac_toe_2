@@ -11,4 +11,8 @@ class Game
       @current_player, @other_player = @other_player, @current_player
     end
 
+    def select_position
+      "#{current_player.name}: Enter a number between 1 and 9 to select position"
+    end
+
 end

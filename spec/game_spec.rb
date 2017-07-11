@@ -5,11 +5,20 @@ describe Game do
   let (:b) { Player.new({ name: "b"}) }
 
   describe "#switch_players" do
-    it "will set @current_player to @other_player" do
+    it "will change current player after each turn" do
     game = Game.new([a, b])
     other_player = game.other_player
     game.switch_players
     expect(game.current_player).to eq other_player
+    end
+  end
+
+  describe "#move" do
+    it "allows the player to make a move" do
+      game = Game.new([a, b])
+      game.stub(:current_player) { a }
+      expected = "a: Enter a number between 1 and 9 to select position"
+      expect(game.select_position).to eq expected
     end
   end
 
