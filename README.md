@@ -1,6 +1,6 @@
 # tic_tac_toe_2
 
-##The brief
+## The brief
 
 The rules of tic-tac-toe are as follows:
 
