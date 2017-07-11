@@ -26,6 +26,24 @@ class Game
       return "Game over: draw" if board.game_over == :draw
     end
 
+    def play
+      puts "#{current_player.name} is Player 1"
+      while true
+        board.formatted_grid
+        puts ""
+        puts select_position
+        x, y = get_move
+        board.set_cell(x, y, current_player.color)
+        if board.game_over
+          puts game_over_message
+          board.formatted_grid
+          return
+        else
+          switch_players
+        end
+      end
+    end
+
     private
 
     def coordinate(player_input)
