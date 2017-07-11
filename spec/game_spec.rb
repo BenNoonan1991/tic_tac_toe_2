@@ -16,7 +16,7 @@ describe Game do
   describe "#move" do
     it "allows the player to make a move" do
       game = Game.new([a, b])
-      game.stub(:current_player) { a }
+      allow(game).to receive(:current_player) { a }
       expected = "a: Enter a number between 1 and 9 to select position"
       expect(game.select_position).to eq expected
     end
