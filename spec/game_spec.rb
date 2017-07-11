@@ -29,4 +29,20 @@ describe Game do
     end
   end
 
+  describe "#game_over_message" do
+    it "displays correct message when a player wins" do
+      game = Game.new([a, b])
+      allow(game).to receive(:current_player) { a }
+      allow(game.board).to receive(:game_over) { :winner }
+      expect(game.game_over_message).to eq "a won!"
+    end
+
+    it "displays correct message when game is a draw" do
+      game = Game.new([a, b])
+      allow(game).to receive(:current_player) { a }
+      allow(game.board).to receive(:game_over) { :draw }
+      expect(game.game_over_message).to eq "Game over: draw"
+    end
+  end
+
 end

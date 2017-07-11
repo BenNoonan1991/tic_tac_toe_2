@@ -1,3 +1,5 @@
+require 'board'
+
 class Game
     attr_reader :players, :board, :current_player, :other_player
 
@@ -19,6 +21,11 @@ class Game
       coordinate(player_input)
     end
 
+    def game_over_message
+      return "#{current_player.name} won!" if board.game_over == :winner
+      return "Game over: draw" if board.game_over == :draw
+    end
+
     private
 
     def coordinate(player_input)
@@ -34,7 +41,7 @@ class Game
         "9" => [2, 2]
       }
       mapping[player_input]
-    end 
+    end
 
 
 end
